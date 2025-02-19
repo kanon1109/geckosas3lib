@@ -45,6 +45,29 @@ public class Random
             b++;
         return randrange(a, b);
     }
+	
+	/**
+     * 返回a 到 b直间的随机整数，包括 a 和 b
+     * @param a
+     * @param b
+     * @param exclude 需要排除的数字
+     * @return [a, b] 直接的随机整数
+     *
+     */
+    public static function randint2(a:int, b:int, exclude: int):int
+    {
+        if (a > b)
+            a++;
+        else
+            b++;
+        var result:int;
+        do
+        {
+            result = Random.randrange(a, b);
+        }
+        while(result == exclude);
+        return result;
+    }
     
     /**
      * 返回 a - b之间的随机数，不包括  Math.max(a, b)
